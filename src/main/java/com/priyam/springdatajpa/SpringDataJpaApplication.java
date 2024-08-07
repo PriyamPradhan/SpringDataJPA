@@ -6,6 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.Optional;
+
+
 @SpringBootApplication
 public class SpringDataJpaApplication {
 
@@ -23,7 +26,7 @@ public class SpringDataJpaApplication {
 		game1.setRating(9.1);
 
 		game2.setTag(2);
-		game2.setTitle("PUBG");
+		game2.setTitle("Black Adam");
 		game2.setRating(10.0);
 
 		game3.setTag(3);
@@ -33,6 +36,17 @@ public class SpringDataJpaApplication {
 		gameRepo.save(game1);
 		gameRepo.save(game2);
 		gameRepo.save(game3);
+
+		System.out.println(gameRepo.count());		//count of total number of data
+
+		System.out.println(gameRepo.findAll());		//fetch all data
+
+		System.out.println(gameRepo.findById(3));	//fetch by primary key @Id , but can give null point exception if id is not in DB
+//		---
+//		OR
+//		---
+		Optional<Game> g = gameRepo.findById(6);	//to avoid null point exception
+		System.out.println(g.orElse(new Game()));	//returning a new object having null values instead of getting null pointer exception
 
 	}
 
