@@ -27,10 +27,12 @@ public class SpringDataJpaApplication {
 		game2.setRating(10.0);
 
 		game3.setTag(3);
-		game3.setTitle("Black Flag");
+		game3.setTitle("AC Origin");
 		game3.setRating(8.2);
 
 		gameRepo.save(game1);
+		gameRepo.save(game2);
+		gameRepo.save(game3);
 
 	}
 
