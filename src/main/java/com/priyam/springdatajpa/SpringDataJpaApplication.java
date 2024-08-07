@@ -1,6 +1,7 @@
 package com.priyam.springdatajpa;
 
 import com.priyam.springdatajpa.model.Game;
+import com.priyam.springdatajpa.repository.GameRepo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -10,6 +11,9 @@ public class SpringDataJpaApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(SpringDataJpaApplication.class, args);
+
+		GameRepo gameRepo = context.getBean(GameRepo.class);
+
 		Game game1 = context.getBean(Game.class);
 		Game game2 = context.getBean(Game.class);
 		Game game3 = context.getBean(Game.class);
@@ -25,6 +29,8 @@ public class SpringDataJpaApplication {
 		game3.setTag(3);
 		game3.setTitle("Black Flag");
 		game3.setRating(8.2);
+
+		gameRepo.save(game1);
 
 	}
 

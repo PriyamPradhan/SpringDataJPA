@@ -1,12 +1,15 @@
 package com.priyam.springdatajpa.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
+@Entity
 public class Game {
-
+    @Id
     private int tag;
     private String title;
     private double rating;
