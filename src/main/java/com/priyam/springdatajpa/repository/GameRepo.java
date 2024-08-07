@@ -12,4 +12,9 @@ public interface GameRepo extends JpaRepository<Game, Integer> {
 
     @Query("select s from Game s where s.title=?1")
     List<Game> findByTitle(String title);
+
+    List<Game> findByRating(double rating);
+
+    List<Game> findByRatingGreaterThan(double v);
+
 }
