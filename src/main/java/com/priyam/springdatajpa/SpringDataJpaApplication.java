@@ -48,6 +48,8 @@ public class SpringDataJpaApplication {
 		Optional<Game> g = gameRepo.findById(6);	//to avoid null point exception
 		System.out.println(g.orElse(new Game()));	//returning a new object having null values instead of getting null pointer exception
 
+		System.out.println(gameRepo.findByTitle("Black Adam"));		//returns a list
+
 	}
 
 }
