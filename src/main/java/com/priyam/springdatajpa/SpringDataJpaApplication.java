@@ -26,7 +26,7 @@ public class SpringDataJpaApplication {
 		game1.setRating(9.1);
 
 		game2.setTag(2);
-		game2.setTitle("Black Adam");
+		game2.setTitle("Black Adam 2");
 		game2.setRating(10.0);
 
 		game3.setTag(3);
@@ -51,6 +51,10 @@ public class SpringDataJpaApplication {
 		System.out.println(gameRepo.findByTitle("Black Adam"));		//returns a list
 		System.out.println(gameRepo.findByRatingGreaterThan(9.0));
 		System.out.println(gameRepo.findByRating(9));
+
+		gameRepo.save(game2);						//update the data
+		gameRepo.delete(game3);						//delete from data
+		System.out.println(gameRepo.findAll());
 	}
 
 }
